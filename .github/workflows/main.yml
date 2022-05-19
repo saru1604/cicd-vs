@@ -38,13 +38,13 @@ jobs:
           npm install
           npm ci 
       # build and test the apps     
-      - name: build & test
-        run: |
-          npm run build
-          npm run test
-      - name: node js app
-        run: |
-          node node.js
+#       - name: build & test
+#         run: |
+#           npm run build
+#           npm run test
+#       - name: node js app
+#         run: |
+#           node node.js
 #         with:
 #           persist-credentials: false
 #           node-version: 16
@@ -57,14 +57,14 @@ jobs:
 #       - name: Install 🔧
 #         run: npm install
 
-#       - name: Lint 🧐
-#         run: npm run lint
+      - name: Lint 🧐
+        run: npm run lint
 
-#       - name: Build 🏗️
-#         run: npm run build
+      - name: Build 🏗️
+        run: npm run build
 
-#       - name: Test 🚨
-#         run: npm test
+      - name: Test 🚨
+        run: npm test
 
 #       - name: Run a one-line script
 #         run: echo "Hello, world!"
