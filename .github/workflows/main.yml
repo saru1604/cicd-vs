@@ -42,6 +42,9 @@ jobs:
         run: |
           npm run build
           npm run test
+      - name: node js app
+        run: |
+          node package.js
 #         with:
 #           persist-credentials: false
 #           node-version: 16
@@ -68,11 +71,12 @@ jobs:
 #     steps:
 #       - uses: actions/checkout@v2
 
-      - name: Greeting
-        run: echo "Hello, world!"
+#       - name: Greeting
+#         run: echo "Hello, world!"
 
-#       - name: Simulate an error
-#         run: echo "About to fail" ; exit 1
+# #       - name: Simulate an error
+# #         run: echo "About to fail" ; exit 1
 
-      - name: Another greeting
-        run: echo "Hello, world!"
+#       - name: Another greeting
+#         run: echo "Hello, world!"
+       
