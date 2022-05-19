@@ -1,17 +1,26 @@
-name: CI
+name: CI-CD
 
-on: push
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build:
+  # This workflow contains multiple jobs
+  build_test:
+    name: Build & Test App
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout 🛎️
-#         uses: actions/checkout@v2
-#         runs-on: ubuntu-latest
-#     strategy:
-#       matrix:
-#         node-version: [14.x]
+    strategy:
+      matrix:
+        node-version: [14.x]
     
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -24,15 +33,15 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       # install applicaion dependencies
-      - name: Install 🔧
+      - name: Install dependencies
         run: |
           npm install
-          npm ci
+          npm ci 
+      # build and test the apps     
       - name: build & test
         run: |
           npm run build
           npm run test
-
 #         with:
 #           persist-credentials: false
 #           node-version: 16
