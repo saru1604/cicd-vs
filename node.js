@@ -4,7 +4,7 @@
     "lodash": "*"
   },
   "scripts": {
-    "lint": "echo 'Linting!'",
+   // "lint": "echo 'Linting!'",
     "build": "echo 'Running a build!'",
     "test": "echo 'Running unit tests!'",
   }
