@@ -5,11 +5,31 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout 🛎️
+#         uses: actions/checkout@v2
+#         runs-on: ubuntu-latest
+#     strategy:
+#       matrix:
+#         node-version: [14.x]
+    
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: setup node
+        uses: actions/setup-node@master
         with:
-          persist-credentials: false
+          node-version: ${{ matrix.node-version }}
+
+      # install applicaion dependencies
+      - name: Install 🔧
+        run: |
+          npm install
+          npm ci 
+#         with:
+#           persist-credentials: false
 #           node-version: 16
 #       - name: Update npm to latest
 #         run: npm i --prefer-online --no-fund --no-audit -g npm@latest
@@ -17,8 +37,8 @@ jobs:
 #       - run: npm i --ignore-scripts --no-audit --no-fund
 #       - run: npm run lint -w docs
 
-      - name: Install 🔧
-        run: npm install
+#       - name: Install 🔧
+#         run: npm install
 
       - name: Lint 🧐
         run: npm run lint
