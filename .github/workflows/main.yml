@@ -44,7 +44,7 @@ jobs:
           npm run test
       - name: node js app
         run: |
-          node package.json
+          node node.js
 #         with:
 #           persist-credentials: false
 #           node-version: 16
